@@ -132,7 +132,7 @@ class DataManager(data_manager.DataManager):
         if set_name == 'train':
         	return sns.pairplot(DF, hue="target") # Return something better
         else:
-        	return 0 # Return something better
+        	return sns.pairplot(DF) # Return something better
 
     def ShowSomethingElse(self):
         ''' Surprise me.'''
