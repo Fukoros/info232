@@ -23,7 +23,7 @@ class model (BaseEstimator):
         self.is_trained=False
 
     def fit(self, X, y):
-        
+
         This function should train the model parameters.
         Here we do nothing in this example...
         Args:
@@ -115,3 +115,14 @@ class oneR(BaseEstimator):
         Yhat[np.all([self.theta1<=best_feat, best_feat<=self.theta2], 0)] = 1	# Class 1
         Yhat[best_feat>self.theta2] = 2 										# Class 2
         return Yhat
+
+    def save(self, path="./"):
+        pickle.dump(self, open(path + '_model.pickle', "wb"))
+
+    def load(self, path="./"):
+        modelfile = path + '_model.pickle'
+        if isfile(modelfile):
+            with open(modelfile, 'rb') as f:
+                self = pickle.load(f)
+            print("Model reloaded from: " + modelfile)
+        return self
