@@ -80,13 +80,17 @@ class model (BaseEstimator):
             print("Model reloaded from: " + modelfile)
         return self
 '''
-class oneR(BaseEstimator):
+class model(BaseEstimator):
     ''' One Rule classifier '''
     def __init__(self):
         ''' The "constructor" initializes the parameters '''
         self.selected_feat = 0 	# The chosen variable/feature
         self.theta1 = 0 		# The first threshold
         self.theta2 = 0			# The second threshold
+        self.num_train_samples=0
+        self.num_feat=1
+        self.num_labels=1
+        self.is_trained=False
 
     def fit(self, X, Y, F=[]):
         ''' The method "fit" trains a super-simple classifier '''
